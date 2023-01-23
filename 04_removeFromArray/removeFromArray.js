@@ -1,11 +1,9 @@
-const removeFromArray = function(arrayIn, itemToRemove) {
-    let length = arrayIn.length;
+const removeFromArray = function(arrayIn, ...itemsToRemove) {
     let arrayOut = [];
-
     // Populate arrayOut with all values that aren't items to remove
-    for (let i = 0; i < length; i++) {
-        if (arrayIn[i] !== itemToRemove) {
-            arrayOut[arrayOut.length] = arrayIn[i];
+    for (arrayItem of arrayIn) {
+        if (!itemsToRemove.includes(arrayItem)) {
+            arrayOut.push(arrayItem);
         };
     };
     return arrayOut;
